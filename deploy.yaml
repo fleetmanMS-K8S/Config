@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minikube
+spec:
+  selector:
+    matchLabels:
+      app: minikube
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: minikube
+
+    spec:
+      containers:
+      - name: minikube
+        image: ${REPOSITORY_TAG}
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 200Mi
+            cpu: 50m
+        
+
+
+
+
+---
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: minikube
+
+spec:
+  selector:
+    app: minikube
+
+  ports:
+    - name: http
+      port: 8012
+     
+
+
+
+  type:  ClusterIP
