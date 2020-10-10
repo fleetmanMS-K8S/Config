@@ -5,7 +5,7 @@ pipeline {
 
 
      SERVICE_NAME = "Config"     
-     REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-config:${BUILD_ID}"
+     REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/config:${BUILD_ID}"
    }
 
    stages {
